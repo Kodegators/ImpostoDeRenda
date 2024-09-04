@@ -16,6 +16,7 @@ do
             break;
 
         case 2:
+            TorresHanoi.TorresHanoiJogo();
             break;
 
         case 3:
