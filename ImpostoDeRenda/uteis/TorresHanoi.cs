@@ -24,18 +24,14 @@ namespace ImpostoDeRenda.uteis
             {
                 if (torre1.Count == 0)
                 {
-                    for (int j = 5; j >= 0; j--)
-                    {
-                        int t1 = torre1.ElementAtOrDefault(j);
-                        int t2 = torre2.ElementAtOrDefault(j);
-                        int t3 = torre3.ElementAtOrDefault(j);
+                        int t1 = torre1.ElementAtOrDefault(i);
+                        int t2 = torre2.ElementAtOrDefault(i);
+                        int t3 = torre3.ElementAtOrDefault(i);
                         string torre1Discs = new string(' ', (maxWidth - t1) / 2) + new string(disc, t1) + new string(' ', (maxWidth - t1 + 1) / 2);
                         string torre2Discs = new string(' ', (maxWidth - t2) / 2) + new string(disc, t2) + new string(' ', (maxWidth - t2 + 1) / 2);
                         string torre3Discs = new string(' ', (maxWidth - t3) / 2) + new string(disc, t3) + new string(' ', (maxWidth - t3 + 1) / 2);
                         Console.WriteLine($"{torre1Discs}   {torre2Discs}   {torre3Discs}");
-                    }
-                    if (torre2 == TorreWin || torre3 == TorreWin)
-                        return "0";
+                   
                 }
                 else
                 {
@@ -48,6 +44,8 @@ namespace ImpostoDeRenda.uteis
                     Console.WriteLine($"{torre1Discs}   {torre2Discs}   {torre3Discs}");
                 }
             }
+            if (torre2.SequenceEqual(TorreWin) || torre3.SequenceEqual(TorreWin))
+                return "0";
             return "1";
         }
 
@@ -70,6 +68,8 @@ namespace ImpostoDeRenda.uteis
                     Remvd = torre3[torre3.Count - 1];
                     torre3.Remove(torre3[torre3.Count - 1]);
                     break;
+                default:
+                    throw new ArithmeticException("Movimento Invalido");
             }
 
             switch (coloca)
@@ -140,6 +140,19 @@ namespace ImpostoDeRenda.uteis
                         throw new ArithmeticException("Movimento Invalido");
                     }
                     break;
+                default:
+                    if (tira == "1")
+                        torre1.Add(Remvd);
+                    else if (tira == "2")
+                    {
+                        torre2.Add(Remvd);
+                    }
+                    else if (tira == "3")
+                    {
+                        torre3.Add(Remvd);
+                    }
+                    throw new ArithmeticException("Movimento Invalido");
+                        
             }
             TorreFinal.Add(torre1);
             TorreFinal.Add(torre2);
