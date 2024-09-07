@@ -26,22 +26,6 @@ do
             break;
 
         case 2:
-            List<int> torre1 = new List<int>(TorreFinal[0]);
-            List<int> torre2 = new List<int>(TorreFinal[1]);
-            List<int> torre3 = new List<int>(TorreFinal[2]);
-            var disc = '-';
-            int maxWidth = 10;
-            Console.WriteLine("  1             2            3");
-            for (int j = 5; j >= 0; j--)
-            {
-                int t1 = torre1.ElementAtOrDefault(j);
-                int t2 = torre2.ElementAtOrDefault(j);
-                int t3 = torre3.ElementAtOrDefault(j);
-                string torre1Discs = new string(' ', (maxWidth - t1) / 2) + new string(disc, t1) + new string(' ', (maxWidth - t1 + 1) / 2);
-                string torre2Discs = new string(' ', (maxWidth - t2) / 2) + new string(disc, t2) + new string(' ', (maxWidth - t2 + 1) / 2);
-                string torre3Discs = new string(' ', (maxWidth - t3) / 2) + new string(disc, t3) + new string(' ', (maxWidth - t3 + 1) / 2);
-                Console.WriteLine($"{torre1Discs}   {torre2Discs}   {torre3Discs}");
-            }
             try
             {
                 do
